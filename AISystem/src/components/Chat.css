@@ -1,0 +1,114 @@
+
+.message-bubble {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 18px;
+  margin: 12px 0;
+  background: #ffffff;
+  color: #263238;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.message-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: left;
+
+  /* Important word wrapping fixes */
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+/* Paragraph alignment */
+.message-content p {
+  margin: 10px 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Headings */
+.message-content h1,
+.message-content h2,
+.message-content h3 {
+  text-align: left;
+  line-height: 1.5;
+  margin: 18px 0 10px;
+  overflow-wrap: anywhere;
+}
+
+/* Lists */
+.message-content ul,
+.message-content ol {
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+.message-content li {
+  padding-left: 3px;
+  margin-bottom: 8px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* Tables */
+.message-content table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 15px 0;
+}
+
+.message-content th,
+.message-content td {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Images */
+.message-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Code blocks */
+.message-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .message-bubble {
+    padding: 12px;
+  }
+
+  .message-content {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .message-content table {
+    font-size: 12px;
+  }
+
+  .message-content th,
+  .message-content td {
+    padding: 7px;
+  }
+}

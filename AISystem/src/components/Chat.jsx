@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Chat.css";
 
 import { sendChatMessage } from "../services/chatService";
+import ReactMarkdown from "react-markdown";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -100,7 +101,13 @@ const Chat = () => {
               className={`message-row ${msg.sender}`}
             >
               <div className="message-bubble">
-                {msg.text}
+               {/* <p>{msg.text}</p>  */}
+                 <div className="message-content">
+        {/* {msg.text} */}
+            <ReactMarkdown>
+       {msg.text || ""}
+    </ReactMarkdown>
+  </div>
               </div>
             </div>
           ))
