@@ -6,9 +6,10 @@ const menuItems = [
   { name: "Dashboard", icon: "🏠", path: "/" },
   { name: "Analytics", icon: "📊", path: "/analytics" },
   { name: "Users", icon: "👥", path: "/users" },
-  { name: "Messages", icon: "💬", path: "/messages" },
-  { name: "Settings", icon: "⚙️", path: "/settings" },
+//   { name: "Messages", icon: "💬", path: "/messages" },
+
   { name: "Chat", icon: "💬", path: "/chat" },
+    { name: "Settings", icon: "⚙️", path: "/settings" },
 ];
 
 const Sidebar = ({ onMenuClick }) => {
