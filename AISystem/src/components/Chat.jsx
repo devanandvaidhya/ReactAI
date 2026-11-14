@@ -2,9 +2,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Chat.css";
 
-// const API_URL = "https://agentic-ai-fastapi.vercel.app/ask";
+const API_URL = "https://agentic-ai-fastapi.vercel.app/ask";
 // const API_URL = "http://127.0.0.1:8000/ask";
-const API_URL = "http://127.0.0.1:8000/ask";
+// const API_URL = "http://127.0.0.1:8000/ask";
 
 
 // const Chat = () => {
