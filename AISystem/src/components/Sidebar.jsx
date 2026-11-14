@@ -26,7 +26,7 @@ const Sidebar = ({ onMenuClick }) => {
 
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="sidebar-header">
-          <h2>My Dashboard</h2>
+          <h2 style={{color:"white"}}>Happy Hospital</h2>
         </div>
 
         <nav className="sidebar-nav">

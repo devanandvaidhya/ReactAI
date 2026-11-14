@@ -2,12 +2,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Chat.css";
 
-const API_URL = "https://agentic-ai-fastapi.vercel.app/ask";
-// const API_URL = "http://127.0.0.1:8000/ask";
-// const API_URL = "http://127.0.0.1:8000/ask";
+import { sendChatMessage } from "../services/chatService";
 
-
-// const Chat = () => {
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -15,20 +11,19 @@ const Chat = () => {
 
   const messagesEndRef = useRef(null);
 
-  // Auto scroll to latest message
+  // Auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
     });
   }, [messages, loading]);
 
-  // Send message to API
+  // Send message
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
 
     const question = input.trim();
 
-    // Add user message
     const userMessage = {
       id: Date.now(),
       text: question,
@@ -40,24 +35,9 @@ const Chat = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          accept: "*/*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          question: question,
-        }),
-      });
+      // Call API service
+      const data = await sendChatMessage(question);
 
-      if (!response.ok) {
-        throw new Error("Failed to get response from API");
-      }
-
-      const data = await response.json();
-
-      // Add API answer
       const botMessage = {
         id: Date.now() + 1,
         text: data.answer,
@@ -67,13 +47,13 @@ const Chat = () => {
       setMessages((prev) => [...prev, botMessage]);
 
     } catch (error) {
-      console.error("API Error:", error);
+      console.error("Chat Error:", error);
 
       setMessages((prev) => [
         ...prev,
         {
           id: Date.now() + 1,
-          text: "Something went wrong. Please try again.",
+          text: error.message || "Something went wrong. Please try again.",
           sender: "assistant",
         },
       ]);
@@ -83,7 +63,7 @@ const Chat = () => {
     }
   };
 
-  // Start new chat
+  // New Chat
   const newChat = () => {
     setMessages([]);
     setInput("");
@@ -139,7 +119,7 @@ const Chat = () => {
 
       </div>
 
-      {/* Message Input */}
+      {/* Input Area */}
       <div className="chat-input-wrapper">
 
         <div className="chat-input-box">
@@ -169,7 +149,7 @@ const Chat = () => {
 
         <p className="input-footer">
           Medical Assistant can make mistakes.
-          Consult a qualified healthcare professional.
+          Consult a qualified healthcare professional &#169; 2026 DV. All Rights Reserved..
         </p>
 
       </div>
